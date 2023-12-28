@@ -1,0 +1,78 @@
+<!-- views/index.ejs -->
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tienda Virtual</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Neuton|Oswald'>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+  <link rel="stylesheet" href="/stylesDetalles.css"> <!-- Ruta absoluta -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide@3.4.1/dist/css/glide.core.min.css">
+</head>
+
+<body>
+  <div id="encabezado">
+    <p><span>Zona Sneakers</span></p>
+  </div>
+
+  <div class="carousel-container">
+    <div class="glide">
+      <div class="glide__track" data-glide-el="track">
+        <ul class="glide__slides">
+          <!-- Aquí se generan dinámicamente las imágenes desde JavaScript -->
+        </ul>
+      </div>
+      <div class="dots" data-glide-el="controls[nav]"></div>
+    </div>
+  </div>
+
+
+  <div class="nombre-container">
+    <p id="ProductName"></p>
+  </div>
+
+  <div id="nItem">
+    <p>Item No.
+    <a id="numeroItem"></a>
+    </p>
+  </div>
+
+  <div id="envioGratis">
+    <p>Envío Gratis</p>
+  </div>
+
+  <div>
+    <p id="precio">$50.000</p>
+  </div>
+
+  <div class="descripcion-container">
+    <%= descripcion.description %>
+  </div>
+
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const name = urlParams.get('name');
+    const precio = urlParams.get('precio');
+    var nItem = urlParams.get('DetallesLink');
+
+    // Extrae la parte específica después del último "/" y antes del ".html"
+    const startIndex = nItem.lastIndexOf('/') + 1;
+    const endIndex = nItem.lastIndexOf('.html');
+    nItem = nItem.substring(startIndex, endIndex);
+    document.getElementById('numeroItem').textContent = nItem;
+
+    document.getElementById('ProductName').textContent = name;
+    const precioEntero = parseFloat(precio.replace(/[^\d.]/g, '')) || 0;
+    document.getElementById('precio').textContent = "$" + (precioEntero * 0.65).toFixed(3);
+  </script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide@3.4.1/dist/glide.min.js"></script>
+  <script src="/scriptsDetalles.js"></script>
+</body>
+
+
+</html>

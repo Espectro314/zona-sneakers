@@ -1,0 +1,107 @@
+/* styles.css */
+body {
+  font-family: Roboto, sans-serif;
+  background-color: #f5f5f5;
+  color: #333; 
+}
+
+ /* ENCABEZADO */
+ #encabezado {
+	position: relative;
+  text-align: center;
+  background-color:  #090d00;;
+}
+
+#encabezado p {
+  color: burlywood;
+	text-transform: uppercase;
+	letter-spacing: 0.5em;
+	display: inline-block;
+	border: 4px double rgba(255, 255, 255, 0.25);
+	border-width: 4px 0;
+	padding: 1.5em 0em;
+	position: relative; 
+	width: 40em; 
+	font-size: 9px;
+}
+#encabezado p span {
+  font: 700 4em/1 "Oswald", sans-serif;
+  letter-spacing: 0;
+  padding: 0.25em 0 0.325em;
+  display: block;
+  margin: 0 auto;
+  text-shadow: 0 0 80px rgba(255, 255, 255, 0.5);
+  /* Clip Background Image */
+  background: url(https://i.ibb.co/RDTnNrT/animated-text-fill.png) repeat-y;
+  -webkit-background-clip: text;
+  background-clip: text;
+  /* Animate Background Image */
+  -webkit-text-fill-color: transparent;
+  -webkit-animation: aitf 80s linear infinite;
+  /* Activate hardware acceleration for smoother animations */
+  -webkit-transform: translate3d(0, 0, 0);
+  -webkit-backface-visibility: hidden;
+}
+
+/* Animate Background Image */
+@-webkit-keyframes aitf {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+#form {
+  position: relative;
+  
+}
+  
+.product-container {
+  margin: 20px;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.product {
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 40%;
+}
+
+#ProductImg {
+  width: 100%;
+  position: relative;
+}
+
+#ProductName {
+  line-height: 1.2;
+  font-size: 12px;
+  margin-left: 8%;
+  margin-bottom: 5px;
+}
+
+#ProductPrice {
+  color: #393c3e;
+  line-height: 22px;
+  font-family: Roboto, sans-serif;
+  font-size: 16px;
+  margin-left: 8%;
+  margin-bottom: 5px;
+}
+
+#ProductCuotas {
+  font-family: Roboto, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  color: #ed3237;
+  margin-left: 8%;
+  line-height: 1.5;
+}
+
